@@ -1,10 +1,14 @@
 import { Router } from "express";
-import { usuarioRepository } from "../repositories/usuarioRepository.js";
+import { usuarioController } from "../Controller/usuarioController.js";
 
 const router = Router();
 
-router.get("/usuario", usuarioRepository.getByLogin);
-router.get("/usuario", usuarioRepository.findAll);
-router.get("/:id", usuarioRepository.findById);
+
+router.post("/login", usuarioController.getByLogin);
+router.post("/", usuarioController.create);
+router.get("/", usuarioController.findAll);
+router.get("/:id", usuarioController.findById);
+router.put("/:id", usuarioController.update);
+router.delete("/:id", usuarioController.delete);
 
 export default router;
